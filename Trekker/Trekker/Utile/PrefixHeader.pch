@@ -1,0 +1,16 @@
+//
+//  PrefixHeader.pch
+//  Trekker
+//
+//  Created by MS on 15-9-17.
+//  Copyright (c) 2015年 hmh. All rights reserved.
+//
+
+#ifndef Trekker_PrefixHeader_pch
+#define Trekker_PrefixHeader_pch
+
+#import "Header.h"
+
+
+#import <BaiduMapAPI/BMapKit.h>
+#endif

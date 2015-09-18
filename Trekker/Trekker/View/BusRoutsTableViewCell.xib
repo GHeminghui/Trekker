@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="69" id="KGk-i7-Jjw" customClass="BusRoutsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="335" height="69"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="方案1." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1f-Cm-cbE">
+                        <rect key="frame" x="17" y="24" width="51" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="kRE-is-FOq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="西直门上车 坐地铁8号线 经过2站" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hv-3f-y5d">
+                        <rect key="frame" x="91" y="8" width="215" height="53"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="3hv-3f-y5d" secondAttribute="trailing" constant="10" id="0DG-Hk-Nc1"/>
+                    <constraint firstItem="R1f-Cm-cbE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="9gz-3u-P0f"/>
+                    <constraint firstAttribute="bottom" secondItem="R1f-Cm-cbE" secondAttribute="bottom" constant="10" id="DWn-bC-6vk"/>
+                    <constraint firstItem="R1f-Cm-cbE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="MsY-JO-v2K"/>
+                    <constraint firstItem="3hv-3f-y5d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="YO7-T6-XfZ"/>
+                    <constraint firstItem="3hv-3f-y5d" firstAttribute="leading" secondItem="R1f-Cm-cbE" secondAttribute="trailing" constant="10" id="nkc-xC-gST"/>
+                    <constraint firstAttribute="bottom" secondItem="3hv-3f-y5d" secondAttribute="bottom" constant="10" id="oRl-SD-zGL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="RoutInfo" destination="3hv-3f-y5d" id="Cls-mO-4zz"/>
+                <outlet property="RoutNumber" destination="R1f-Cm-cbE" id="SkW-At-AQV"/>
+            </connections>
+            <point key="canvasLocation" x="360.5" y="233.5"/>
+        </tableViewCell>
+    </objects>
+</document>

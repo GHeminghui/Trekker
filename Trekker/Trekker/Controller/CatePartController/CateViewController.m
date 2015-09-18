@@ -1,0 +1,37 @@
+//
+//  CateViewController.m
+//  Trekker
+//
+//  Created by MS on 15-9-17.
+//  Copyright (c) 2015年 hmh. All rights reserved.
+//
+
+#import "CateViewController.h"
+
+@interface CateViewController ()
+
+@end
+
+@implementation CateViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"美食街";
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end
