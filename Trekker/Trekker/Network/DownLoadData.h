@@ -12,4 +12,5 @@
 +(void)getCategorys:(void (^) (id obj, NSError *err))block;
 +(void)getdistricts:(void (^) (id obj, NSError *err))block;
 +(void)getShopsLists:(void (^) (id obj, NSError *err))block withDicParams:(NSDictionary *)params;
++(void)getHtmlData:(void (^) (id obj, NSError *err))block withUrl:(NSString *)url;
 @end

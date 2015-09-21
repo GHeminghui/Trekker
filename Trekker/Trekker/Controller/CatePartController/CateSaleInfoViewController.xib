@@ -5,9 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CateViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CateSaleInfoViewController">
             <connections>
-                <outlet property="_tableView" destination="nAb-cR-7HT" id="epg-yK-JKL"/>
+                <outlet property="cateInfoWeb" destination="wci-KX-G5I" id="Ff7-4Z-PiJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,17 +16,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nAb-cR-7HT">
-                    <rect key="frame" x="0.0" y="36" width="375" height="631"/>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wci-KX-G5I">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
+                </webView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="nAb-cR-7HT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0X3-Yp-KGC"/>
-                <constraint firstAttribute="bottom" secondItem="nAb-cR-7HT" secondAttribute="bottom" id="GE8-ln-UgD"/>
-                <constraint firstAttribute="trailing" secondItem="nAb-cR-7HT" secondAttribute="trailing" id="Ijc-Gg-RWC"/>
-                <constraint firstItem="nAb-cR-7HT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="36" id="Psa-QT-yJI"/>
+                <constraint firstItem="wci-KX-G5I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="C3g-8P-B6I"/>
+                <constraint firstAttribute="bottom" secondItem="wci-KX-G5I" secondAttribute="bottom" id="ERU-Tk-wj8"/>
+                <constraint firstItem="wci-KX-G5I" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="R6f-1K-uTh"/>
+                <constraint firstAttribute="trailing" secondItem="wci-KX-G5I" secondAttribute="trailing" id="kWP-67-4hP"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>

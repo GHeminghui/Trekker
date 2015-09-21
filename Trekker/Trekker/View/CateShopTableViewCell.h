@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIImageView+WebCache.h"
+
 
 @interface CateShopTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *shopName;

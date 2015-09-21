@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIImageView+WebCache.h"
+#import "Deal.h"
 
 @interface DellTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *img;
@@ -16,4 +18,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *markPrice;
 @property (strong, nonatomic) IBOutlet UILabel *promotePrice;
 @property (strong, nonatomic) IBOutlet UILabel *saleNum;
+
+-(void)loadDataFromModel:(Deal *)deal;
 @end

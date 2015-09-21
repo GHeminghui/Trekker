@@ -10,4 +10,5 @@
 
 @interface loadDataFromNet : NSObject
 +(void)request: (NSString*)httpUrl withHttpArg: (NSDictionary *)HttpArg withCompletion: (void (^) (id obj, NSError *err))block ;
++(void)requestWeb: (NSString*)httpUrl withHttpArg: (NSDictionary *)HttpArg withCompletion: (void (^) (id obj, NSError *err))block;
 @end

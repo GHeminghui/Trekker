@@ -13,4 +13,5 @@
 @property (nonatomic,copy) NSString * distance;
 @property (nonatomic,strong) NSMutableArray * deals;
 @property (nonatomic,copy) NSString * url;
+@property (nonatomic,assign) BOOL isLoadAll;//数据是否显示完全 初始值根据数据条数判断
 @end

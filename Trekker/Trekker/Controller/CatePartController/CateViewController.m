@@ -13,6 +13,8 @@
 #import "Shops.h"
 #import "Deal.h"
 #import "UIImageView+WebCache.h"
+#import "MoreDellTableViewCell.h"
+#import "CateSaleInfoViewController.h"
 
 @interface CateViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -40,6 +42,9 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _datasource = [[NSMutableArray alloc] init];
+    
+    _tableView.tableFooterView = [[UIView alloc] init];
+    
     [self getDataPullDownMen];
 }
 
@@ -166,13 +171,18 @@
     NSLog(@"%@",[param retDicParameter]);
     [DownLoadData getShopsLists:^(id obj, NSError *err) {
         
+        
         if (obj != nil) {
+            [_datasource removeAllObjects];
             NSArray * shp = [[obj objectForKey:@"data"] objectForKey:@"shops"];
             for (NSDictionary * dic in shp) {
                 Shops * shop = [[Shops alloc] init];
                 shop.shopName = [dic objectForKey:@"shop_name"];
                 shop.distance = [dic objectForKey:@"distance"];
                 shop.url = [dic objectForKey:@"shop_murl"];
+                
+                NSLog(@"RTRRRRRR   %@ %@",shop.shopName,shop.distance);
+                
                 NSArray * deals = [dic objectForKey:@"deals"];
                 for (NSDictionary * dicDeal in deals) {
                     Deal * dl = [[Deal alloc] init];
@@ -187,11 +197,21 @@
                         shop.deals = [[NSMutableArray alloc] init];
                     }
                     [shop.deals addObject:dl];
+                    
+                    NSLog(@"++++++++++   %@ ",dl.desc);
+                }
+                //是否要加载完全 用来实现折叠效果
+                if (deals.count > 2) {
+                    shop.isLoadAll = NO;
+                }else
+                {
+                    shop.isLoadAll = YES;
                 }
                 [_datasource addObject:shop];
-                [_tableView reloadData];
+                
             }
-          
+            
+          [_tableView reloadData];
         }
         
     } withDicParams:[param retDicParameter]];
@@ -206,6 +226,10 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
      Shops * shop = _datasource[section];
+    if (!shop.isLoadAll && shop.deals.count > 2) {
+        NSLog(@"moremoremore");
+        return 4;
+    }
     return shop.deals.count + 1;
 }
 
@@ -213,6 +237,7 @@
 {
     UITableViewCell * cell = nil;
     static NSString * str = nil;
+    Shops * shp = _datasource[indexPath.section];
     if (indexPath.row == 0) {
         str = @"shops";
         cell = [tableView dequeueReusableCellWithIdentifier:str];
@@ -223,22 +248,52 @@
         }
     }else
     {
-        str = @"shops";
-        cell = [tableView dequeueReusableCellWithIdentifier:str];
-        if (!cell) {
+        if (!shp.isLoadAll && indexPath.row == 3) {
             
-            [tableView registerNib:[UINib nibWithNibName:@"DellTableViewCell" bundle:nil] forCellReuseIdentifier:str];
+                str = @"MoreDells";
+                cell = [tableView dequeueReusableCellWithIdentifier:str];
+                if (!cell) {
+                    
+                    [tableView registerNib:[UINib nibWithNibName:@"MoreDellTableViewCell" bundle:nil] forCellReuseIdentifier:str];
+                    cell = [tableView dequeueReusableCellWithIdentifier:str];
+                }
+    
+        }else
+        {
+            str = @"dells";
             cell = [tableView dequeueReusableCellWithIdentifier:str];
-        }
+            if (!cell) {
+                
+                [tableView registerNib:[UINib nibWithNibName:@"DellTableViewCell" bundle:nil] forCellReuseIdentifier:str];
+                cell = [tableView dequeueReusableCellWithIdentifier:str];
+            }
 
+        }
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Shops * shp = _datasource[indexPath.section];
+    
+    if (indexPath.row == 0) {
+        return 50;
+    }else if(indexPath.row == 3 && !shp.isLoadAll)
+    {
+        return 30;
+    }
+    
+    return 80;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 10;
+    return 20;
 }
+
+
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -246,19 +301,63 @@
     if (indexPath.row == 0) {
         CateShopTableViewCell * cs = (CateShopTableViewCell *)cell;
         cs.shopName.text = shp.shopName;
-        cs.distance.text = shp.distance;
+//        cs.distance.text = [NSString stringWithFormat:@"<%@米",shp.distance];
+        cs.distance.text = @"";
+        NSLog(@"section:%ld",indexPath.section);
+        NSLog(@"%@ %@",shp.shopName,shp.distance);
     }else
     {
-        DellTableViewCell * dellC = (DellTableViewCell *)cell;
- 
-        Deal * dl = [shp.deals objectAtIndex:indexPath.row];
+        NSLog(@"row:%ld",indexPath.row - 1);
         
-        [dellC.img setImageWithURL:[NSURL URLWithString:dl.imagurl] placeholderImage:[UIImage imageNamed:@"holder.png"]];
-        dellC.desc.text = dl.desc;
-        dellC.currentProice.text = dl.currentPrice;
-        dellC.markPrice.text = dl.markPrice;
-        dellC.promotePrice.text = dl.parameterPrice;
-        dellC.saleNum.text = [NSString stringWithFormat:@"已售%@",dl.saleNum];
+        if (!shp.isLoadAll && indexPath.row == 3) {
+            MoreDellTableViewCell * moreC = (MoreDellTableViewCell *)cell;
+            NSInteger numMore = shp.deals.count - 2;
+//            NSLog(@"%还有-----%ld",moreC.cate)
+            [moreC setCatNum:numMore];
+            
+        }else
+        {
+        
+            DellTableViewCell * dellC = (DellTableViewCell *)cell;
+     
+            Deal * dl = [shp.deals objectAtIndex:indexPath.row - 1];
+    //        
+    //        [dellC.img setImageWithURL:[NSURL URLWithString:dl.imagurl] placeholderImage:[UIImage imageNamed:@"holder.png"] options:SDWebImageRetryFailed];
+    //        dellC.desc.text = dl.desc;
+    //        dellC.currentProice.text =[NSString stringWithFormat:@"%@",dl.currentPrice];
+    //        dellC.markPrice.text = [NSString stringWithFormat:@"%@",dl.markPrice];
+    //        dellC.promotePrice.text = [NSString stringWithFormat:@"%@",dl.parameterPrice];
+    //        dellC.saleNum.text = [NSString stringWithFormat:@"已售%@",dl.saleNum];
+            [dellC loadDataFromModel:dl];
+            
+            NSLog(@"%@ %@ %@ %@ %@ %@ %@",dl.imagurl,dl.desc,dl.currentPrice,dl.currentPrice,dl.markPrice,dl.parameterPrice,dl.saleNum);
+        }
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+     Shops * shp = _datasource[indexPath.section];
+
+    if (indexPath.row == 0) {
+        //跳转到商户
+        CateSaleInfoViewController * cateSale = [[CateSaleInfoViewController alloc] initWithNibName:@"CateSaleInfoViewController" bundle:nil];
+        [cateSale loadCateInfoWebPage:shp.url];
+        [self.navigationController pushViewController:cateSale animated:YES];
+    }else
+    {
+        if (!shp.isLoadAll && indexPath.row == 3) {
+            //展开剩余的美食条目
+            shp.isLoadAll = YES;
+            [_tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section]withRowAnimation:UITableViewRowAnimationTop];
+        }else
+        {
+            //跳转到相应的美食团购界面
+            CateSaleInfoViewController * cateSale = [[CateSaleInfoViewController alloc] initWithNibName:@"CateSaleInfoViewController" bundle:nil];
+            Deal * dl = shp.deals[indexPath.row - 1];
+            [cateSale loadCateInfoWebPage:dl.url];
+            [self.navigationController pushViewController:cateSale animated:YES];
+        }
     }
 }
 

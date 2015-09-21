@@ -49,7 +49,9 @@
 {
     self = [super init];
     if (self) {
-        
+        self.layer.borderWidth = 1.0;
+        self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+        self.layer.cornerRadius = 8;
         self.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 36);
         
         _menuColor = [UIColor colorWithRed:164.0/255.0 green:166.0/255.0 blue:169.0/255.0 alpha:1.0];

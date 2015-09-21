@@ -40,4 +40,12 @@
     }];
 
 }
+
++(void)getHtmlData:(void (^) (id obj, NSError *err))block withUrl:(NSString *)url
+{
+    [loadDataFromNet requestWeb:url withHttpArg:@{} withCompletion:^(id obj, NSError *err) {
+        block(obj,err);
+    }];
+
+}
 @end
