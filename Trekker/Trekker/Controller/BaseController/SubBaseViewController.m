@@ -7,6 +7,7 @@
 //
 
 #import "SubBaseViewController.h"
+#import "RDVTabBarController.h"
 
 @interface SubBaseViewController ()
 
@@ -18,6 +19,59 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self.rdv_tabBarController setTabBarHidden:YES animated:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.rdv_tabBarController setTabBarHidden:NO animated:YES];
+    [super viewWillDisappear:YES];
+}
+
+#pragma --mark  上拉刷新（使用MJRefresh第三方封装库）
+- (void)pullToUpdateDataForTableView
+{
+    
+    //避免循环引用(即：自己引用自己)
+    __weak typeof(self) weakSelf = self;
+    
+    // 添加传统的上拉刷新
+    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+    [self.baseTableView addLegendFooterWithRefreshingBlock:^{
+        [weakSelf loadMoreData];
+    }];
+    
+    // 此时self.tableView.footer == self.tableView.gifFooter
+}
+
+//刷新请求数据 子类中重写
+-(void)loadMoreData
+{
+    
+}
+
+//显示加载进度条
+-(void)showProgressHud
+{
+    _HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.view addSubview:_HUD];
+    _HUD.delegate = self;
+    _HUD.labelText = @"玩命加载中";
+    
+    [_HUD show:YES];
+    
+}
+
+//隐藏加载进度条
+-(void)hiddenProgressHud
+{
+    _HUD.hidden = YES;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

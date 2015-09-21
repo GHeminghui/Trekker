@@ -16,4 +16,6 @@
 
 #import "Help.h"
 #import "DownLoadData.h"
+#import "MBProgressHUD.h"
+#import "MJRefresh.h"
 #endif

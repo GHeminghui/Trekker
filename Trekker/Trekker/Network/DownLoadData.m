@@ -33,7 +33,7 @@
 {
     NSString *httpUrl = @"http://apis.baidu.com/baidunuomi/openapi/searchshops";
     NSDictionary *httpArg = params;
-    
+    NSLog(@"请求参数%@",httpArg);
     [loadDataFromNet request:httpUrl withHttpArg:httpArg withCompletion:^(id obj, NSError *err) {
         block(obj,err);
         NSLog(@"%@",err);

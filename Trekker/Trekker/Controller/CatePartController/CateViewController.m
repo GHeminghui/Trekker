@@ -41,21 +41,34 @@
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    
+//    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.baseTableView = _tableView;//上拉刷新需要的设置
+    
     _datasource = [[NSMutableArray alloc] init];
     
+    //除去多于格子
     _tableView.tableFooterView = [[UIView alloc] init];
     
-    [self getDataPullDownMen];
+    [self pullToUpdateDataForTableView];//添加下拉刷新
+    
+    [self getDataPullDownMen];//请求多条件选中栏中的数据
 }
 
 -(void)setInitValueForRequestPar
 {
+     NSLog(@"%s",__func__);
     //设置默认请参数
     param.city_id = @"100010000";
     param.cat_ids = @"326";
-    param.subcat_ids = [[_catDataSource objectAtIndex:0] objectForKey:@"subcat_id"];
+    if (_catDataSource.count > 0) {
+        param.subcat_ids = [[_catDataSource objectAtIndex:0] objectForKey:@"subcat_id"];
+    }
     
-    param.district_ids = [[_districts objectAtIndex:0] objectForKey:@"id"];
+    if (_districts.count > 0) {
+         param.district_ids = [[_districts objectAtIndex:0] objectForKey:@"id"];
+    }
     param.page = @"1";
     param.page_size = @"5";//每页返回5条
     
@@ -63,8 +76,10 @@
 
 -(void)getDataPullDownMen//下载数据
 {
+     NSLog(@"%s",__func__);
     static int i = 0;
     i = 0;
+    [self showProgressHud];//显示刷新进度条
     [DownLoadData getCategorys:^(id obj, NSError *err) {
         NSArray * categories = [obj objectForKey:@"categories"];
         
@@ -105,7 +120,7 @@
         i++;
         if(i == 2)
         {
-            [self addPullDownMenu];
+            [self addPullDownMenu];//
         }
 
     }];
@@ -113,8 +128,10 @@
     
 }
 
+//将数据添加到多条件选中栏
 -(void)addPullDownMenu
 {
+    NSLog(@"%s",__func__);
     [self setInitValueForRequestPar];
     
     NSMutableArray * cats = [[NSMutableArray alloc] init];
@@ -135,11 +152,13 @@
     [self requestForCatData];
 }
 
-// 实现代理.
+// 实现代理. 多条件选择时,触发
 #pragma mark - MXPullDownMenuDelegate
 
 - (void)PullDownMenu:(MXPullDownMenu *)pullDownMenu didSelectRowAtColumn:(NSInteger)column row:(NSInteger)row
 {
+     NSLog(@"%s",__func__);
+    
     if (column == 0) {//更新数据
         
         param.subcat_ids = [[_catDataSource objectAtIndex:row] objectForKey:@"subcat_id"];
@@ -149,7 +168,9 @@
         param.district_ids = [[_districts objectAtIndex:row] objectForKey:@"id"];
     }
 
+    param.page = @"1";
     //重新请求数据
+    [self showProgressHud];//显示刷新进度条
     [self requestForCatData];
     
 }
@@ -168,12 +189,17 @@
 //    page_size
 //    
 //    sort
+    
+     __weak typeof(self) weakSelf = self;
     NSLog(@"%@",[param retDicParameter]);
     [DownLoadData getShopsLists:^(id obj, NSError *err) {
         
         
         if (obj != nil) {
-            [_datasource removeAllObjects];
+            //如果是重新从第一页开始请求 就清空原来的数据
+            if ([weakSelf timeToRemoveDataFromDataSource]) {
+                [_datasource removeAllObjects];
+            }
             NSArray * shp = [[obj objectForKey:@"data"] objectForKey:@"shops"];
             for (NSDictionary * dic in shp) {
                 Shops * shop = [[Shops alloc] init];
@@ -214,8 +240,28 @@
           [_tableView reloadData];
         }
         
+        //如果还没隐藏 就隐藏进度条
+        if (!weakSelf.HUD.isHidden) {
+            [weakSelf hiddenProgressHud];//所有数据请求完毕之后，隐藏刷新进度条
+        }else
+        {
+            //停止刷新
+            [weakSelf.baseTableView.footer endRefreshing];
+        }
+    
     } withDicParams:[param retDicParameter]];
 
+}
+
+//判断请求数据的时候是否要清空数据  清空返回yes 否则返回no
+-(BOOL)timeToRemoveDataFromDataSource
+{
+    NSInteger currentPageNumber = [param.page integerValue];//当前的页
+    
+    if (currentPageNumber == 1) {
+        return YES;
+    }
+    return NO;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -288,13 +334,13 @@
     return 80;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 20;
 }
 
 
-
+#pragma --mark 单元格加载式触发 初始化单元格数据
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
      Shops * shp = _datasource[indexPath.section];
@@ -334,7 +380,7 @@
         }
     }
 }
-
+#pragma --mark 选中单元格事件
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
      Shops * shp = _datasource[indexPath.section];
@@ -349,7 +395,15 @@
         if (!shp.isLoadAll && indexPath.row == 3) {
             //展开剩余的美食条目
             shp.isLoadAll = YES;
-            [_tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section]withRowAnimation:UITableViewRowAnimationTop];
+            
+//            //单元格局部刷新
+//            NSMutableArray * indexs = [[NSMutableArray alloc] init];
+//            for (NSInteger i = indexPath.row;i <= shp.deals.count; i++ ) {
+//                NSIndexPath * index = [NSIndexPath indexPathForRow:i inSection:indexPath.section];
+//                [indexs addObject:index];
+//            }
+//           
+            [_tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationNone];
         }else
         {
             //跳转到相应的美食团购界面
@@ -359,6 +413,18 @@
             [self.navigationController pushViewController:cateSale animated:YES];
         }
     }
+}
+
+//重写父类方法 上拉刷新时调用该方法
+-(void)loadMoreData
+{
+    NSLog(@"这是上拉刷新");
+    
+//    __weak typeof(self) weakSelf = self;
+    param.page = [NSString stringWithFormat:@"%ld",(_datasource.count + [param.page_size integerValue] - 1)/ 5 + 1];
+    NSLog(@"请求第%@页的数据",param.page);
+    
+    [self requestForCatData];//请求数据
 }
 
 - (void)didReceiveMemoryWarning {

@@ -49,9 +49,9 @@
 {
     self = [super init];
     if (self) {
-        self.layer.borderWidth = 1.0;
-        self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-        self.layer.cornerRadius = 8;
+//        self.layer.borderWidth = 1.0;
+//        self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+//        self.layer.cornerRadius = 8;
         self.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 36);
         
         _menuColor = [UIColor colorWithRed:164.0/255.0 green:166.0/255.0 blue:169.0/255.0 alpha:1.0];
@@ -69,11 +69,13 @@
         for (int i = 0; i < _numOfMenu; i++) {
             
             CGPoint position = CGPointMake( (i * 2 + 1) * textLayerInterval , self.frame.size.height / 2);
-            CATextLayer *title = [self creatTextLayerWithNSString:_array[i][0] withColor:_menuColor andPosition:position];
-            [self.layer addSublayer:title];
-            [_titles addObject:title];
-            
-            
+            CATextLayer *title;
+            if ([_array[i] count] > 0) {
+                title = [self creatTextLayerWithNSString:_array[i][0] withColor:_menuColor andPosition:position];
+                [self.layer addSublayer:title];
+                [_titles addObject:title];
+            }
+  
             CAShapeLayer *indicator = [self creatIndicatorWithColor:_menuColor andPosition:CGPointMake(position.x + title.bounds.size.width / 2 + 8, self.frame.size.height / 2)];
             [self.layer addSublayer:indicator];
             [_indicators addObject:indicator];
