@@ -13,4 +13,7 @@
 
 
 #import <BaiduMapAPI/BMapKit.h>
+
+#import "Help.h"
+#import "DownLoadData.h"
 #endif

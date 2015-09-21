@@ -15,7 +15,7 @@
 
 @interface RouteAnnotation : BMKPointAnnotation
 {
-    int _type; ///<0:起点 1：终点 2：公交 3：地铁 4:驾乘 5:途经点
+    int _type; ///<0:起点 1：终点 2：公交 3：地铁 4:驾乘 5:途经点 6.步行
     int _degree;
 }
 
@@ -62,6 +62,7 @@
     return nil ;
 }
 
+#pragma --mark mapActionShowLineInfo(设置图片的显示类型)
 
 -(void)mapActionShowLineInfo
 {
@@ -86,7 +87,17 @@
         RouteAnnotation* item = [[RouteAnnotation alloc]init];
         item.coordinate = transitStep.entrace.location;
         item.title = transitStep.instruction;
-        item.type = 3;
+        if ([self.Type isEqualToString:@"bus"]) {
+            item.type = 3;//设置图片的显示类型
+        }else if([self.Type isEqualToString:@"walk"])
+        {
+            item.type = 6;//设置图片的显示类型
+        }
+        else
+        {
+            item.type = 4;//设置图片的显示类型
+        }
+        
         [_mapView addAnnotation:item];
         
         //轨迹点总数累计
@@ -279,6 +290,21 @@
             }
             
             UIImage* image = [UIImage imageWithContentsOfFile:[self getMyBundlePath1:@"images/icon_nav_waypoint.png"]];
+            view.image = [image imageRotatedByDegrees:routeAnnotation.degree];
+            view.annotation = routeAnnotation;
+        }
+            break;
+        case 6:
+        {
+            view = [mapview dequeueReusableAnnotationViewWithIdentifier:@"walkpoint_node"];
+            if (view == nil) {
+                view = [[BMKAnnotationView alloc]initWithAnnotation:routeAnnotation reuseIdentifier:@"walkpoint_node"];
+                view.canShowCallout = TRUE;
+            } else {
+                [view setNeedsDisplay];
+            }
+            
+            UIImage* image = [UIImage imageNamed:@"walk"];
             view.image = [image imageRotatedByDegrees:routeAnnotation.degree];
             view.annotation = routeAnnotation;
         }

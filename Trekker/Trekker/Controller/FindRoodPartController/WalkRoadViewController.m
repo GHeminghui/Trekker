@@ -1,24 +1,23 @@
 //
-//  DriveRoodDetailViewController.m
+//  WalkRoadViewController.m
 //  Trekker
 //
-//  Created by MS on 15-9-18.
+//  Created by MS on 15-9-19.
 //  Copyright (c) 2015年 hmh. All rights reserved.
 //
 
-#import "DriveRoodDetailViewController.h"
+#import "WalkRoadViewController.h"
 #import "MapViewController.h"
 #import "DriveInfoTableViewCell.h"
 
-@interface DriveRoodDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface WalkRoadViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
-    
     IBOutlet UITableView *_tableView;
     NSMutableArray * _dataSource;
 }
 @end
 
-@implementation DriveRoodDetailViewController
+@implementation WalkRoadViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,13 +41,12 @@
     
     self.navigationItem.rightBarButtonItem = Barbtn;
 }
-
 //跳转到地图
 -(void)showMap:(id)sender
 {
     MapViewController * mapC = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
     mapC.plan = self.line;
-    mapC.Type = @"car";
+    mapC.Type = @"walk";
     [self.navigationController pushViewController:mapC animated:YES];
 }
 
@@ -59,7 +57,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _dataSource.count + 1;
+    return _dataSource.count ;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,15 +76,12 @@
 {
     if (indexPath.row < _dataSource.count) {
         DriveInfoTableViewCell * dCell = (DriveInfoTableViewCell *)cell;
-        BMKDrivingStep * dStep = [_dataSource objectAtIndex:indexPath.row];
-        dCell.driveInfo.text =  [NSString stringWithFormat:@"%@,需要%d次转弯",dStep.entraceInstruction,dStep.numTurns];
-    }else
-    {
-        DriveInfoTableViewCell * dCell = (DriveInfoTableViewCell *)cell;
-        dCell.driveInfo.text = @"到达终点";
+        BMKWalkingStep * dStep = [_dataSource objectAtIndex:indexPath.row];
+        dCell.driveInfo.text =  [NSString stringWithFormat:@"%@",dStep.instruction];
     }
-   
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

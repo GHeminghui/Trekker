@@ -49,6 +49,7 @@
 {
     MapViewController * mapC = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
     mapC.plan = self.line;
+    mapC.Type = @"bus";
     [self.navigationController pushViewController:mapC animated:YES];
 }
 

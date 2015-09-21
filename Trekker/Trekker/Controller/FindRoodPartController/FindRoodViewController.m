@@ -19,6 +19,8 @@
 
 #import "DriveRoodDetailViewController.h"
 
+#import "WalkRoadViewController.h"
+
 #define MYBUNDLE_NAME @ "mapapi.bundle"
 #define MYBUNDLE_PATH [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: MYBUNDLE_NAME]
 #define MYBUNDLE [NSBundle bundleWithPath: MYBUNDLE_PATH]
@@ -158,6 +160,9 @@
     {
         _searchTypeName = @"驾车";
     }
+    
+    [_dataSource removeAllObjects];
+    [_tableView reloadData];
 }
 
 //公交路线检索
@@ -357,9 +362,63 @@
 - (void)onGetWalkingRouteResult:(BMKRouteSearch*)searcher result:(BMKWalkingRouteResult*)result errorCode:(BMKSearchErrorCode)error
 {
     if (error == BMK_SEARCH_NO_ERROR) {
-        NSArray * routesCount = result.routes;
+        [_dataSource removeAllObjects];
         
-        NSLog(@"么有错误   ------- 共有方案数为 %ld", routesCount.count);
+        BMKTaxiInfo*        _taxiInfo = result.taxiInfo;
+        BMKSuggestAddrInfo* _suggestAddrResult = result.suggestAddrResult;
+
+        NSArray * routes = result.routes;
+        
+        //数据源中添加数据
+        NSMutableArray * lineArr = [[NSMutableArray alloc] init];
+        [lineArr addObjectsFromArray:routes];
+        [_dataSource addObject:lineArr];
+        [_tableView reloadData];
+        
+        NSLog(@"么有错误   ------- 共有方案数为 %ld", routes.count);
+        
+//        NSString* _desc;
+//        int       _distance;
+//        int       _duration;
+//        float     _perKMPrice;
+//        int       _totalPrice;
+        NSLog(@"%@ %d %d %f %d",_taxiInfo.desc,_taxiInfo.distance,_taxiInfo.duration,_taxiInfo.perKMPrice,_taxiInfo.totalPrice);
+        
+//        NSArray* _startPoiList;
+//        NSArray* _endPoiList;
+//        NSArray* _startCityList;
+//        NSArray* _endCityList;
+//        NSArray* _wayPointsPoiList;
+//        NSArray* _wayPointsCityList;
+        
+        NSLog(@"%ld %ld %ld %ld %ld %ld",_suggestAddrResult.startPoiList.count,_suggestAddrResult.endPoiList.count,_suggestAddrResult.startCityList.count,_suggestAddrResult.endCityList.count,_suggestAddrResult.wayPointPoiList.count,_suggestAddrResult.wayPointCityList.count);
+        
+        int i = 0;
+        for (BMKWalkingRouteLine * line in routes) {
+//            int                  _distance;
+//            BMKTime*             _duration;
+//            BMKRouteNode*        _starting;
+//            BMKRouteNode*        _terminal;
+//            NSString*            _title;
+//            NSArray*             _steps;
+            
+//            int       _dates;
+//            int       _hours;
+//            int       _minutes;
+//            int       _seconds;
+            
+            NSLog(@"路线%d",++i);
+            NSLog(@"%d %d:%d:%d:%d %@ %@ %@",line.distance,line.duration.dates,line.duration.hours,line.duration.minutes,line.duration.seconds,line.starting.title,line.terminal.title,line.title);
+            for (BMKWalkingStep * wStep in line.steps) {
+//                int                  _direction;
+//                BMKRouteNode*        _entrace;
+//                NSString*            _entraceInstruction;
+//                BMKRouteNode*        _exit;
+//                NSString*            _exitInstruction;
+//                NSString*            _instruction;
+                NSLog(@"%@ %@-->%@ %@ ++ %@",wStep.entrace.title,wStep.entraceInstruction,wStep.exit.title,wStep.exitInstruction,wStep.instruction);
+            }
+        }
 
     }else
     {
@@ -466,8 +525,6 @@
 
     }
     
-    
-    
     cell = [tableView dequeueReusableCellWithIdentifier:str];
     if (!cell) {
         [tableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellReuseIdentifier:str];
@@ -517,13 +574,14 @@
     }else if(_checkType.selectedSegmentIndex == 1)
     {
         //步行
-        if (indexPath.section == 0) {
-            
-        }else
-        {
-            
-        }
         
+        BMKWalkingRouteLine * WRLine = [[_dataSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        
+        //显示数据
+        WalkRoutsTableViewCell * drivCell = (WalkRoutsTableViewCell *)cell;
+        drivCell.title.text = [NSString stringWithFormat:@"步行方案%ld",indexPath.row + 1];
+        drivCell.detailInfo.text = [NSString stringWithFormat:@"用时约 %d天 %d:%d:%d,约 %d米",WRLine.duration.dates,WRLine.duration.hours,WRLine.duration.minutes,WRLine.duration.seconds,WRLine.distance];
+
     }else//驾车
     {
 //        int                  _distance;
@@ -587,6 +645,10 @@
     }else if(_checkType.selectedSegmentIndex == 1)//步行
     {
         
+        
+        WalkRoadViewController * roodDetailC = [[WalkRoadViewController alloc] initWithNibName:@"WalkRoadViewController" bundle:nil];
+        roodDetailC.line = [_dataSource[indexPath.section] objectAtIndex:indexPath.row];
+        [self.navigationController pushViewController:roodDetailC animated:YES];
         
     }else//驾车
     {

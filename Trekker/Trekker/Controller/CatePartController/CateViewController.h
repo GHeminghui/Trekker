@@ -7,7 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "MXPullDownMenu.h"
 
-@interface CateViewController : BaseViewController
+
+
+@interface CateViewController : BaseViewController<MXPullDownMenuDelegate>
 
 @end

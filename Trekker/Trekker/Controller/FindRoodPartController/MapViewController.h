@@ -15,4 +15,5 @@
 
 @property (strong, nonatomic) IBOutlet BMKMapView *mapView;
 @property (strong,nonatomic) BMKRouteLine* plan;
+@property (copy,nonatomic) NSString * Type;
 @end

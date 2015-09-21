@@ -39,6 +39,24 @@
 		4E9865F81BAC4294002C009E /* DriveRoodDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9865F61BAC4294002C009E /* DriveRoodDetailViewController.xib */; };
 		4E9865FC1BAC451F002C009E /* DriveInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9865FA1BAC451F002C009E /* DriveInfoTableViewCell.m */; };
 		4E9865FD1BAC451F002C009E /* DriveInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9865FB1BAC451F002C009E /* DriveInfoTableViewCell.xib */; };
+		4E9866011BACF6FB002C009E /* WalkRoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9865FF1BACF6FB002C009E /* WalkRoadViewController.m */; };
+		4E9866021BACF6FB002C009E /* WalkRoadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9866001BACF6FB002C009E /* WalkRoadViewController.xib */; };
+		4E9866051BAD062A002C009E /* walk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9866031BAD062A002C009E /* walk@2x.png */; };
+		4E9866061BAD062A002C009E /* walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9866041BAD062A002C009E /* walk.png */; };
+		4E9866091BAD0B0B002C009E /* car@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9866071BAD0B0B002C009E /* car@2x.png */; };
+		4E98660A1BAD0B0B002C009E /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9866081BAD0B0B002C009E /* car.png */; };
+		4E9866101BAD4003002C009E /* MXPullDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E98660F1BAD4003002C009E /* MXPullDownMenu.m */; };
+		4E9866131BAD5202002C009E /* loadDataFromNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9866121BAD5202002C009E /* loadDataFromNet.m */; };
+		4E9866161BAD5514002C009E /* Help.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9866151BAD5514002C009E /* Help.m */; };
+		4E9866191BAD5897002C009E /* DownLoadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9866181BAD5897002C009E /* DownLoadData.m */; };
+		4E98F7871BAE765300BE12FC /* CatParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E98F7861BAE765300BE12FC /* CatParameters.m */; };
+		4E98F7C21BAEDE1C00BE12FC /* CateShopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E98F7C01BAEDE1C00BE12FC /* CateShopTableViewCell.m */; };
+		4E98F7C31BAEDE1C00BE12FC /* CateShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E98F7C11BAEDE1C00BE12FC /* CateShopTableViewCell.xib */; };
+		4E98F7C71BAEDF0E00BE12FC /* DellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E98F7C51BAEDF0E00BE12FC /* DellTableViewCell.m */; };
+		4E98F7C81BAEDF0E00BE12FC /* DellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E98F7C61BAEDF0E00BE12FC /* DellTableViewCell.xib */; };
+		4E98F7CB1BAEE55900BE12FC /* Shops.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E98F7CA1BAEE55900BE12FC /* Shops.m */; };
+		4E98F7CE1BAEE85000BE12FC /* Deal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E98F7CD1BAEE85000BE12FC /* Deal.m */; };
+		4E9AF5601BAF9AD100497318 /* CateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AF55F1BAF9AD100497318 /* CateViewController.m */; };
 		4EBB0FC71BAA3FC800AAD324 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBB0FC61BAA3FC800AAD324 /* libxml2.dylib */; };
 		4EBB0FD21BAA419B00AAD324 /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB0FCD1BAA419B00AAD324 /* RDVTabBar.m */; };
 		4EBB0FD31BAA419B00AAD324 /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB0FCF1BAA419B00AAD324 /* RDVTabBarController.m */; };
@@ -47,7 +65,6 @@
 		4EBB0FDE1BAA462700AAD324 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB0FDD1BAA462700AAD324 /* BaseViewController.m */; };
 		4EBB0FE21BAA468D00AAD324 /* SpotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB0FE01BAA468D00AAD324 /* SpotViewController.m */; };
 		4EBB0FE31BAA468D00AAD324 /* SpotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EBB0FE11BAA468D00AAD324 /* SpotViewController.xib */; };
-		4EBB0FE71BAA46B700AAD324 /* CateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB0FE51BAA46B700AAD324 /* CateViewController.m */; };
 		4EBB0FE81BAA46B700AAD324 /* CateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EBB0FE61BAA46B700AAD324 /* CateViewController.xib */; };
 		4EBB0FEC1BAA46D000AAD324 /* FindRoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB0FEA1BAA46D000AAD324 /* FindRoodViewController.m */; };
 		4EBB0FED1BAA46D000AAD324 /* FindRoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EBB0FEB1BAA46D000AAD324 /* FindRoodViewController.xib */; };
@@ -155,14 +172,14 @@
 		4E9865CC1BABF155002C009E /* BusRoutsItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusRoutsItemTableViewCell.xib; sourceTree = "<group>"; };
 		4E9865D11BABF280002C009E /* bus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bus.jpg; sourceTree = "<group>"; };
 		4E9865D91BAC08C9002C009E /* mapBarBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapBarBtn.png; sourceTree = "<group>"; };
-		4E9865DC1BAC1623002C009E /* CustomOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOverlay.h; sourceTree = "<group>"; };
-		4E9865DD1BAC1623002C009E /* CustomOverlay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomOverlay.mm; sourceTree = "<group>"; };
-		4E9865DE1BAC1623002C009E /* CustomOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOverlayView.h; sourceTree = "<group>"; };
-		4E9865DF1BAC1623002C009E /* CustomOverlayView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomOverlayView.mm; sourceTree = "<group>"; };
-		4E9865E01BAC1623002C009E /* MyAnimatedAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnimatedAnnotationView.h; sourceTree = "<group>"; };
-		4E9865E11BAC1623002C009E /* MyAnimatedAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnimatedAnnotationView.m; sourceTree = "<group>"; };
-		4E9865E31BAC1623002C009E /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
-		4E9865E41BAC1623002C009E /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
+		4E9865DC1BAC1623002C009E /* CustomOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomOverlay.h; path = ../CustomOverlay.h; sourceTree = "<group>"; };
+		4E9865DD1BAC1623002C009E /* CustomOverlay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CustomOverlay.mm; path = ../CustomOverlay.mm; sourceTree = "<group>"; };
+		4E9865DE1BAC1623002C009E /* CustomOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomOverlayView.h; path = ../CustomOverlayView.h; sourceTree = "<group>"; };
+		4E9865DF1BAC1623002C009E /* CustomOverlayView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CustomOverlayView.mm; path = ../CustomOverlayView.mm; sourceTree = "<group>"; };
+		4E9865E01BAC1623002C009E /* MyAnimatedAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyAnimatedAnnotationView.h; path = ../MyAnimatedAnnotationView.h; sourceTree = "<group>"; };
+		4E9865E11BAC1623002C009E /* MyAnimatedAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyAnimatedAnnotationView.m; path = ../MyAnimatedAnnotationView.m; sourceTree = "<group>"; };
+		4E9865E31BAC1623002C009E /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Rotate.h"; path = "../UIImage+Rotate.h"; sourceTree = "<group>"; };
+		4E9865E41BAC1623002C009E /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Rotate.m"; path = "../UIImage+Rotate.m"; sourceTree = "<group>"; };
 		4E9865EA1BAC2CAF002C009E /* DriveRoutsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveRoutsTableViewCell.h; sourceTree = "<group>"; };
 		4E9865EB1BAC2CAF002C009E /* DriveRoutsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveRoutsTableViewCell.m; sourceTree = "<group>"; };
 		4E9865EC1BAC2CAF002C009E /* DriveRoutsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriveRoutsTableViewCell.xib; sourceTree = "<group>"; };
@@ -175,6 +192,34 @@
 		4E9865F91BAC451F002C009E /* DriveInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveInfoTableViewCell.h; sourceTree = "<group>"; };
 		4E9865FA1BAC451F002C009E /* DriveInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveInfoTableViewCell.m; sourceTree = "<group>"; };
 		4E9865FB1BAC451F002C009E /* DriveInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriveInfoTableViewCell.xib; sourceTree = "<group>"; };
+		4E9865FE1BACF6FB002C009E /* WalkRoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkRoadViewController.h; sourceTree = "<group>"; };
+		4E9865FF1BACF6FB002C009E /* WalkRoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkRoadViewController.m; sourceTree = "<group>"; };
+		4E9866001BACF6FB002C009E /* WalkRoadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalkRoadViewController.xib; sourceTree = "<group>"; };
+		4E9866031BAD062A002C009E /* walk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "walk@2x.png"; sourceTree = "<group>"; };
+		4E9866041BAD062A002C009E /* walk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk.png; sourceTree = "<group>"; };
+		4E9866071BAD0B0B002C009E /* car@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car@2x.png"; sourceTree = "<group>"; };
+		4E9866081BAD0B0B002C009E /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
+		4E98660E1BAD4003002C009E /* MXPullDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPullDownMenu.h; sourceTree = "<group>"; };
+		4E98660F1BAD4003002C009E /* MXPullDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPullDownMenu.m; sourceTree = "<group>"; };
+		4E9866111BAD5202002C009E /* loadDataFromNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadDataFromNet.h; sourceTree = "<group>"; };
+		4E9866121BAD5202002C009E /* loadDataFromNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadDataFromNet.m; sourceTree = "<group>"; };
+		4E9866141BAD5514002C009E /* Help.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Help.h; sourceTree = "<group>"; };
+		4E9866151BAD5514002C009E /* Help.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Help.m; sourceTree = "<group>"; };
+		4E9866171BAD5897002C009E /* DownLoadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownLoadData.h; sourceTree = "<group>"; };
+		4E9866181BAD5897002C009E /* DownLoadData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadData.m; sourceTree = "<group>"; };
+		4E98F7851BAE765300BE12FC /* CatParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatParameters.h; sourceTree = "<group>"; };
+		4E98F7861BAE765300BE12FC /* CatParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatParameters.m; sourceTree = "<group>"; };
+		4E98F7BF1BAEDE1C00BE12FC /* CateShopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CateShopTableViewCell.h; sourceTree = "<group>"; };
+		4E98F7C01BAEDE1C00BE12FC /* CateShopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CateShopTableViewCell.m; sourceTree = "<group>"; };
+		4E98F7C11BAEDE1C00BE12FC /* CateShopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CateShopTableViewCell.xib; sourceTree = "<group>"; };
+		4E98F7C41BAEDF0E00BE12FC /* DellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DellTableViewCell.h; sourceTree = "<group>"; };
+		4E98F7C51BAEDF0E00BE12FC /* DellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DellTableViewCell.m; sourceTree = "<group>"; };
+		4E98F7C61BAEDF0E00BE12FC /* DellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DellTableViewCell.xib; sourceTree = "<group>"; };
+		4E98F7C91BAEE55900BE12FC /* Shops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shops.h; sourceTree = "<group>"; };
+		4E98F7CA1BAEE55900BE12FC /* Shops.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shops.m; sourceTree = "<group>"; };
+		4E98F7CC1BAEE85000BE12FC /* Deal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deal.h; sourceTree = "<group>"; };
+		4E98F7CD1BAEE85000BE12FC /* Deal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deal.m; sourceTree = "<group>"; };
+		4E9AF55F1BAF9AD100497318 /* CateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CateViewController.m; sourceTree = "<group>"; };
 		4EBB0FC61BAA3FC800AAD324 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		4EBB0FCC1BAA419B00AAD324 /* RDVTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBar.h; sourceTree = "<group>"; };
 		4EBB0FCD1BAA419B00AAD324 /* RDVTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBar.m; sourceTree = "<group>"; };
@@ -190,7 +235,6 @@
 		4EBB0FE01BAA468D00AAD324 /* SpotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotViewController.m; sourceTree = "<group>"; };
 		4EBB0FE11BAA468D00AAD324 /* SpotViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpotViewController.xib; sourceTree = "<group>"; };
 		4EBB0FE41BAA46B700AAD324 /* CateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CateViewController.h; sourceTree = "<group>"; };
-		4EBB0FE51BAA46B700AAD324 /* CateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CateViewController.m; sourceTree = "<group>"; };
 		4EBB0FE61BAA46B700AAD324 /* CateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CateViewController.xib; sourceTree = "<group>"; };
 		4EBB0FE91BAA46D000AAD324 /* FindRoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindRoodViewController.h; sourceTree = "<group>"; };
 		4EBB0FEA1BAA46D000AAD324 /* FindRoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindRoodViewController.m; sourceTree = "<group>"; };
@@ -418,7 +462,7 @@
 			name = FindRoodPartViews;
 			sourceTree = "<group>";
 		};
-		4E9865DB1BAC15C0002C009E /* BDMapCustom */ = {
+		4E98660C1BAD4003002C009E /* BdMapLibs */ = {
 			isa = PBXGroup;
 			children = (
 				4E9865DC1BAC1623002C009E /* CustomOverlay.h */,
@@ -430,7 +474,29 @@
 				4E9865E31BAC1623002C009E /* UIImage+Rotate.h */,
 				4E9865E41BAC1623002C009E /* UIImage+Rotate.m */,
 			);
-			name = BDMapCustom;
+			path = BdMapLibs;
+			sourceTree = "<group>";
+		};
+		4E98660D1BAD4003002C009E /* PullDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				4E98660E1BAD4003002C009E /* MXPullDownMenu.h */,
+				4E98660F1BAD4003002C009E /* MXPullDownMenu.m */,
+			);
+			path = PullDownMenu;
+			sourceTree = "<group>";
+		};
+		4E98F7BE1BAEDDD100BE12FC /* CatePartViews */ = {
+			isa = PBXGroup;
+			children = (
+				4E98F7C41BAEDF0E00BE12FC /* DellTableViewCell.h */,
+				4E98F7C51BAEDF0E00BE12FC /* DellTableViewCell.m */,
+				4E98F7C61BAEDF0E00BE12FC /* DellTableViewCell.xib */,
+				4E98F7BF1BAEDE1C00BE12FC /* CateShopTableViewCell.h */,
+				4E98F7C01BAEDE1C00BE12FC /* CateShopTableViewCell.m */,
+				4E98F7C11BAEDE1C00BE12FC /* CateShopTableViewCell.xib */,
+			);
+			name = CatePartViews;
 			sourceTree = "<group>";
 		};
 		4EBB0FCB1BAA419B00AAD324 /* RDVTabBarController */ = {
@@ -449,8 +515,8 @@
 		4EBB0FD51BAA448000AAD324 /* CatePartController */ = {
 			isa = PBXGroup;
 			children = (
+				4E9AF55F1BAF9AD100497318 /* CateViewController.m */,
 				4EBB0FE41BAA46B700AAD324 /* CateViewController.h */,
-				4EBB0FE51BAA46B700AAD324 /* CateViewController.m */,
 				4EBB0FE61BAA46B700AAD324 /* CateViewController.xib */,
 			);
 			path = CatePartController;
@@ -471,6 +537,9 @@
 				4E9865F41BAC4294002C009E /* DriveRoodDetailViewController.h */,
 				4E9865F51BAC4294002C009E /* DriveRoodDetailViewController.m */,
 				4E9865F61BAC4294002C009E /* DriveRoodDetailViewController.xib */,
+				4E9865FE1BACF6FB002C009E /* WalkRoadViewController.h */,
+				4E9865FF1BACF6FB002C009E /* WalkRoadViewController.m */,
+				4E9866001BACF6FB002C009E /* WalkRoadViewController.xib */,
 			);
 			path = FindRoodPartController;
 			sourceTree = "<group>";
@@ -505,9 +574,13 @@
 				4EBB0FF61BAA544100AAD324 /* favorite_icon_press.png */,
 				4EBB0FF71BAA544100AAD324 /* favorite_icon_press@2x.png */,
 				4E9865D91BAC08C9002C009E /* mapBarBtn.png */,
+				4E9866031BAD062A002C009E /* walk@2x.png */,
+				4E9866041BAD062A002C009E /* walk.png */,
 				4EBB0FF81BAA544100AAD324 /* holder.png */,
 				4EBB0FF91BAA544100AAD324 /* tabbar_feature.png */,
 				4E9865D11BABF280002C009E /* bus.jpg */,
+				4E9866071BAD0B0B002C009E /* car@2x.png */,
+				4E9866081BAD0B0B002C009E /* car.png */,
 				4EBB0FFA1BAA544100AAD324 /* tabbar_feature@2x.png */,
 				4EBB0FFB1BAA544100AAD324 /* tabbar_feature_press.png */,
 				4EBB0FFC1BAA544100AAD324 /* tabbar_feature_press@2x.png */,
@@ -546,7 +619,8 @@
 		4EF922D11BAA3D3300D455D2 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				4E9865DB1BAC15C0002C009E /* BDMapCustom */,
+				4E98660C1BAD4003002C009E /* BdMapLibs */,
+				4E98660D1BAD4003002C009E /* PullDownMenu */,
 				4EBB0FCB1BAA419B00AAD324 /* RDVTabBarController */,
 				4EF9233D1BAA3F5A00D455D2 /* newGata */,
 				4EF923051BAA3F4500D455D2 /* AFNetworking */,
@@ -563,6 +637,12 @@
 				4E9865C01BABB73A002C009E /* BusTrasition.m */,
 				4E9865C21BABBB65002C009E /* TaxiInfo.h */,
 				4E9865C31BABBB65002C009E /* TaxiInfo.m */,
+				4E98F7851BAE765300BE12FC /* CatParameters.h */,
+				4E98F7861BAE765300BE12FC /* CatParameters.m */,
+				4E98F7C91BAEE55900BE12FC /* Shops.h */,
+				4E98F7CA1BAEE55900BE12FC /* Shops.m */,
+				4E98F7CC1BAEE85000BE12FC /* Deal.h */,
+				4E98F7CD1BAEE85000BE12FC /* Deal.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -589,6 +669,8 @@
 			children = (
 				4EBB10171BAA567800AAD324 /* PrefixHeader.pch */,
 				4EBB10181BAA569000AAD324 /* Header.h */,
+				4E9866141BAD5514002C009E /* Help.h */,
+				4E9866151BAD5514002C009E /* Help.m */,
 			);
 			path = Utile;
 			sourceTree = "<group>";
@@ -596,6 +678,7 @@
 		4EF922D61BAA3D3300D455D2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4E98F7BE1BAEDDD100BE12FC /* CatePartViews */,
 				4E9865AD1BABAD1B002C009E /* FindRoodPartViews */,
 			);
 			path = View;
@@ -653,6 +736,10 @@
 		4EF923041BAA3F0400D455D2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				4E9866111BAD5202002C009E /* loadDataFromNet.h */,
+				4E9866121BAD5202002C009E /* loadDataFromNet.m */,
+				4E9866171BAD5897002C009E /* DownLoadData.h */,
+				4E9866181BAD5897002C009E /* DownLoadData.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -807,12 +894,15 @@
 			files = (
 				4EBB0FE31BAA468D00AAD324 /* SpotViewController.xib in Resources */,
 				4EBB0FF21BAA46DF00AAD324 /* MineViewController.xib in Resources */,
+				4E9866061BAD062A002C009E /* walk.png in Resources */,
 				4E9865EE1BAC2CAF002C009E /* DriveRoutsTableViewCell.xib in Resources */,
 				4EBB10331BAA977300AAD324 /* down.png in Resources */,
 				4E9865F81BAC4294002C009E /* DriveRoodDetailViewController.xib in Resources */,
 				4EBB10071BAA544100AAD324 /* favorite_icon_press.png in Resources */,
 				4EBB10091BAA544100AAD324 /* holder.png in Resources */,
+				4E98660A1BAD0B0B002C009E /* car.png in Resources */,
 				4EF922FB1BAA3E4900D455D2 /* LICENSE in Resources */,
+				4E98F7C81BAEDF0E00BE12FC /* DellTableViewCell.xib in Resources */,
 				4E0D29AA1BA9A09F0076189E /* LaunchScreen.xib in Resources */,
 				4EBB10051BAA544100AAD324 /* favorite_icon.png in Resources */,
 				4E9865D21BABF280002C009E /* bus.jpg in Resources */,
@@ -826,6 +916,7 @@
 				4EBB10061BAA544100AAD324 /* favorite_icon@2x.png in Resources */,
 				4E0D29A71BA9A09F0076189E /* Images.xcassets in Resources */,
 				4EBB10201BAA658D00AAD324 /* MapViewController.xib in Resources */,
+				4E9866051BAD062A002C009E /* walk@2x.png in Resources */,
 				4E9865B91BABB1E7002C009E /* BusRoutsTableViewCell.xib in Resources */,
 				4EBB10121BAA544100AAD324 /* tabbar_profile.png in Resources */,
 				4E9865C91BABEA03002C009E /* RoodDetailViewController.xib in Resources */,
@@ -841,9 +932,12 @@
 				4EBB100E1BAA544100AAD324 /* tabbar_home.png in Resources */,
 				4EBB100B1BAA544100AAD324 /* tabbar_feature@2x.png in Resources */,
 				4E9865FD1BAC451F002C009E /* DriveInfoTableViewCell.xib in Resources */,
+				4E98F7C31BAEDE1C00BE12FC /* CateShopTableViewCell.xib in Resources */,
+				4E9866091BAD0B0B002C009E /* car@2x.png in Resources */,
 				4EBB10101BAA544100AAD324 /* tabbar_home__press@2x.png in Resources */,
 				4EBB0FE81BAA46B700AAD324 /* CateViewController.xib in Resources */,
 				4EBB0FED1BAA46D000AAD324 /* FindRoodViewController.xib in Resources */,
+				4E9866021BACF6FB002C009E /* WalkRoadViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -861,14 +955,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E98F7CE1BAEE85000BE12FC /* Deal.m in Sources */,
 				4E9865FC1BAC451F002C009E /* DriveInfoTableViewCell.m in Sources */,
 				4EBB101B1BAA653200AAD324 /* SubBaseViewController.m in Sources */,
+				4E9866101BAD4003002C009E /* MXPullDownMenu.m in Sources */,
 				4EF922E51BAA3E3800D455D2 /* NSString+URLEncoding.m in Sources */,
 				4EF923401BAA3F5A00D455D2 /* GDataXMLNode.m in Sources */,
 				4EF923361BAA3F4500D455D2 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				4E9865B81BABB1E7002C009E /* BusRoutsTableViewCell.m in Sources */,
+				4E9866191BAD5897002C009E /* DownLoadData.m in Sources */,
+				4E98F7C21BAEDE1C00BE12FC /* CateShopTableViewCell.m in Sources */,
 				4E9865E51BAC1623002C009E /* CustomOverlay.mm in Sources */,
-				4EBB0FE71BAA46B700AAD324 /* CateViewController.m in Sources */,
 				4E9865BD1BABB37D002C009E /* TaxiInfoTableViewCell.m in Sources */,
 				4EF9233B1BAA3F4500D455D2 /* UIRefreshControl+AFNetworking.m in Sources */,
 				4EF923381BAA3F4500D455D2 /* UIButton+AFNetworking.m in Sources */,
@@ -876,7 +973,9 @@
 				4E9865E91BAC1623002C009E /* UIImage+Rotate.m in Sources */,
 				4EF923371BAA3F4500D455D2 /* UIAlertView+AFNetworking.m in Sources */,
 				4EF923001BAA3E4900D455D2 /* SDWebImageManager.m in Sources */,
+				4E9866011BACF6FB002C009E /* WalkRoadViewController.m in Sources */,
 				4EBB0FDE1BAA462700AAD324 /* BaseViewController.m in Sources */,
+				4E98F7871BAE765300BE12FC /* CatParameters.m in Sources */,
 				4E9865C41BABBB65002C009E /* TaxiInfo.m in Sources */,
 				4E9865E61BAC1623002C009E /* CustomOverlayView.mm in Sources */,
 				4EF923331BAA3F4500D455D2 /* AFURLResponseSerialization.m in Sources */,
@@ -890,7 +989,9 @@
 				4EBB0FEC1BAA46D000AAD324 /* FindRoodViewController.m in Sources */,
 				4EF9232D1BAA3F4500D455D2 /* AFHTTPRequestOperationManager.m in Sources */,
 				4EF922FF1BAA3E4900D455D2 /* SDWebImageDownloader.m in Sources */,
+				4E9866131BAD5202002C009E /* loadDataFromNet.m in Sources */,
 				4E9865E71BAC1623002C009E /* MyAnimatedAnnotationView.m in Sources */,
+				4E9AF5601BAF9AD100497318 /* CateViewController.m in Sources */,
 				4EF923301BAA3F4500D455D2 /* AFSecurityPolicy.m in Sources */,
 				4E9865F21BAC2CBF002C009E /* WalkRoutsTableViewCell.m in Sources */,
 				4E0D29A51BA9A09F0076189E /* AppDelegate.mm in Sources */,
@@ -902,6 +1003,7 @@
 				4EBB0FF11BAA46DF00AAD324 /* MineViewController.m in Sources */,
 				4EBB101F1BAA658D00AAD324 /* MapViewController.mm in Sources */,
 				4EF923011BAA3E4900D455D2 /* SDWebImagePrefetcher.m in Sources */,
+				4E98F7CB1BAEE55900BE12FC /* Shops.m in Sources */,
 				4EF9232C1BAA3F4500D455D2 /* AFHTTPRequestOperation.m in Sources */,
 				4EF922FE1BAA3E4900D455D2 /* SDWebImageDecoder.m in Sources */,
 				4EF923351BAA3F4500D455D2 /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -911,10 +1013,12 @@
 				4EBB0FD21BAA419B00AAD324 /* RDVTabBar.m in Sources */,
 				4E9865C81BABEA03002C009E /* RoodDetailViewController.m in Sources */,
 				4EBB0FD41BAA419B00AAD324 /* RDVTabBarItem.m in Sources */,
+				4E98F7C71BAEDF0E00BE12FC /* DellTableViewCell.m in Sources */,
 				4EBB0FDB1BAA460600AAD324 /* RootViewController.m in Sources */,
 				4E9865C11BABB73A002C009E /* BusTrasition.m in Sources */,
 				4EF9233C1BAA3F4500D455D2 /* UIWebView+AFNetworking.m in Sources */,
 				4EF922FD1BAA3E4900D455D2 /* SDImageCache.m in Sources */,
+				4E9866161BAD5514002C009E /* Help.m in Sources */,
 				4EF923341BAA3F4500D455D2 /* AFURLSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

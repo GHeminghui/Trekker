@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface WalkRoutsTableViewCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UILabel *title;
+@property (strong, nonatomic) IBOutlet UILabel *detailInfo;
 
 @end
