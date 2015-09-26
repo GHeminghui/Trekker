@@ -10,4 +10,5 @@
 
 @interface Help : NSObject
 +(NSString *)JoinTogetherFromDic:(NSDictionary *)dic;
++(NSString *)DateChangeToString:(NSDate *)date andFormatter:(NSString *)formatter;
 @end

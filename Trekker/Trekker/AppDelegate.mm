@@ -30,6 +30,9 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [DataBase setUpMagicalRecord];//初始化数据库
+    
     return YES;
 }
 
@@ -41,8 +44,25 @@
     
     if (!ret) {
         NSLog(@"manager start failed!");
+    }else{
+         NSLog(@"manager start not failed!");
     }
 
+}
+- (void)onGetNetworkState:(int)iError
+{
+    NSLog(@"onGetNetworkState: ");
+}
+
+/**
+ *返回授权验证错误
+ *@param iError 错误号 : 为0时验证通过，具体参加BMKPermissionCheckResultCode
+ */
+- (void)onGetPermissionState:(int)iError
+{
+    NSLog(@"onGetPermissionState  === %d",iError);
+    //发出通知 注册成功 可以使用地图和定位功能 然后获取相应的数据
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"regSuccess" object:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

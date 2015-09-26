@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SubBaseViewController : UIViewController<MBProgressHUDDelegate>
-@property (nonatomic,strong) UITableView * baseTableView;//基础tableView 需要刷新的界面 将tableview给该基础tableView
+@property (nonatomic,strong) UITableView * baseTableView;//基础
+ ;//基础tableView 需要刷新的界面 将tableview给该基础tableView
 @property (nonatomic,strong) MBProgressHUD *HUD;//定义成属性 子类可以继承
 - (void)pullToUpdateDataForTableView;
 -(void)loadMoreData;//子类中需要重写

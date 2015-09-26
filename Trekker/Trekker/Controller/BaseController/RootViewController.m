@@ -49,8 +49,7 @@
     UIImage *finishedImage = [UIImage imageNamed:@"tabbar_selected_background"];
     UIImage *unfinishedImage = [UIImage imageNamed:@"tabbar_normal_background"];
     NSArray *tabBarItemImages = @[@"tabbar_home", @"tabbar_feature", @"tabbar_profile",@"favorite_icon"];
-    NSArray * titlArr = @[@"周边景点",@"美食街",@"线路导航",@"我的"];
-    
+    NSArray * titlArr = @[@"周边景点",@"美食街",@"线路导航",@"我的足迹"];
     
     NSInteger index = 0;
     

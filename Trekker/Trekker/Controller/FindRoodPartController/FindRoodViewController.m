@@ -41,6 +41,9 @@
     
     BMKRouteSearch * _routesearch;//百度路径规划
     NSMutableArray * _dataSource;
+    
+    NSString * _city ;//线路检索默认城市
+    
 }
 @end
 
@@ -54,6 +57,8 @@
     
     _startPoint.placeholder = @"起始地点名称";
     _endPoint.placeholder = @"终止地点名称";
+    
+    _city = @"北京市";
     
     _startPoint.delegate = self;
     _endPoint.delegate = self;
@@ -89,6 +94,15 @@
 //地图搜索事件，开始搜索
 -(void)beginSearchRoadLine:(id)sender
 {
+    //获取城市
+   NSString * cityN = [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
+   
+    if (cityN) {
+        _city = cityN;
+    }
+    UIBarButtonItem * bar = [[UIBarButtonItem alloc] initWithTitle:_city style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.leftBarButtonItem = bar;
+    
     [_startPoint resignFirstResponder];
     [_endPoint resignFirstResponder];
     if ([_startPoint.text isEqualToString:@""]) {
@@ -174,7 +188,7 @@
     end.name = _endLocationName;
     
     BMKTransitRoutePlanOption *transitRouteSearchOption = [[BMKTransitRoutePlanOption alloc]init];
-    transitRouteSearchOption.city= @"北京市";
+    transitRouteSearchOption.city= _city;
     transitRouteSearchOption.from = start;
     transitRouteSearchOption.to = end;
 
@@ -195,7 +209,7 @@
 -(void)driveSearch
 {
     BMKPlanNode* start = [[BMKPlanNode alloc]init];
-    start.cityName = @"北京";
+    start.cityName = _city;
     start.name = _startLocationName;
     BMKPlanNode* end = [[BMKPlanNode alloc]init];
     end.cityName = @"北京";
@@ -223,10 +237,10 @@
 //    BMKWalkingRoutePlanOption
     
     BMKPlanNode* start = [[BMKPlanNode alloc]init];
-    start.cityName = @"北京";
+    start.cityName = _city;
     start.name = _startLocationName;
     BMKPlanNode* end = [[BMKPlanNode alloc]init];
-    end.cityName = @"北京";
+    end.cityName = _city;
     end.name = _endLocationName;
     
     BMKWalkingRoutePlanOption * walkingRoutePlanOption = [[BMKWalkingRoutePlanOption alloc] init];

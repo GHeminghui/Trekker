@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddInfoViewController">
+            <connections>
+                <outlet property="location" destination="Te9-P6-GDn" id="0L0-Rn-k9t"/>
+                <outlet property="textView" destination="fxC-9a-gNo" id="d3x-Qe-edQ"/>
+                <outlet property="time" destination="50R-Il-tiB" id="AZi-iF-OBq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxC-9a-gNo">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="pSo-s7-3jT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="2015.09.25" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50R-Il-tiB">
+                    <rect key="frame" x="206" y="283" width="139" height="21"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="hfM-Bg-BQb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="北京" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Te9-P6-GDn">
+                    <rect key="frame" x="13" y="283" width="139" height="21"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="rzc-vr-hGW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="50R-Il-tiB" secondAttribute="trailing" constant="10" id="D8c-Is-Ir3"/>
+                <constraint firstItem="fxC-9a-gNo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Eaj-fW-yIS"/>
+                <constraint firstItem="50R-Il-tiB" firstAttribute="leading" secondItem="Te9-P6-GDn" secondAttribute="trailing" constant="10" id="GOV-fa-Tou"/>
+                <constraint firstAttribute="trailing" secondItem="fxC-9a-gNo" secondAttribute="trailing" id="VX5-WN-b6c"/>
+                <constraint firstItem="Te9-P6-GDn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Xm1-ij-Wqy"/>
+                <constraint firstItem="fxC-9a-gNo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="a2M-sy-yYt"/>
+                <constraint firstItem="50R-Il-tiB" firstAttribute="top" secondItem="fxC-9a-gNo" secondAttribute="bottom" constant="10" id="aJP-Pu-LBH"/>
+                <constraint firstItem="Te9-P6-GDn" firstAttribute="top" secondItem="fxC-9a-gNo" secondAttribute="bottom" constant="10" id="n0b-Tb-9KI"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="139.5" y="153.5"/>
+        </view>
+    </objects>
+</document>

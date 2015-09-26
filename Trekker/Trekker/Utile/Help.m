@@ -26,4 +26,17 @@
     
     return [arr componentsJoinedByString:@"&"];
 }
+
+//将date按指定格式输出@"yyyy-MM-dd HH:mm:ss"
++(NSString *)DateChangeToString:(NSDate *)date andFormatter:(NSString *)formatter
+{
+    //实例化一个NSDateFormatter对象
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设定时间格式,这里可以设置成自己需要的格式
+    [dateFormatter setDateFormat:formatter];
+    
+    NSString *currentDateStr = [dateFormatter stringFromDate:date];
+    return currentDateStr;
+}
+
 @end

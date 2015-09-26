@@ -27,6 +27,9 @@
     IBOutlet UITableView *_tableView;
     
     NSMutableArray * _datasource;
+    
+    NSString * cityName;
+    NSString * cityId;
 }
 @end
 
@@ -41,6 +44,12 @@
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    //默认
+    cityName = @"北京";
+    cityId = @"100010000";
+    
+    UIBarButtonItem * barBtn = [[UIBarButtonItem alloc] initWithTitle:@"我的位置" style: UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.leftBarButtonItem = barBtn;
     
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -53,7 +62,36 @@
     
     [self pullToUpdateDataForTableView];//添加下拉刷新
     
-    [self getDataPullDownMen];//请求多条件选中栏中的数据
+//    [self getDataPullDownMen];//请求多条件选中栏中的数据
+    [self getCityId];
+}
+
+-(void)getCityId
+{
+    [self showProgressHud];//显示刷新进度条
+    [DownLoadData  getCites:^(id obj, NSError *err) {
+        
+        if (obj) {
+            NSString * cy = [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
+            if (cy) {
+                cityName = cy;
+            }
+            //设置位置提示
+            self.navigationItem.leftBarButtonItem.title = cityName;
+            
+            NSLog(@"cityName = %@",cityName);
+            for (NSDictionary * dic in obj) {
+                NSString * name = [dic objectForKey:@"city_name"];
+                NSString * short_name = [dic objectForKey:@"short_name"];
+                if ([name isEqualToString:cityName] || [name isEqualToString:short_name]) {
+                    cityId = [dic objectForKey:@"city_id"];
+                    break;
+                }
+            }
+        }
+        
+        [self getDataPullDownMen];//请求多条件选中栏中的数据
+    }];
 }
 
 -(void)setInitValueForRequestPar
@@ -61,6 +99,9 @@
      NSLog(@"%s",__func__);
     //设置默认请参数
     param.city_id = @"100010000";
+    if (cityId) {
+        param.city_id = cityId;
+    }
     param.cat_ids = @"326";
     if (_catDataSource.count > 0) {
         param.subcat_ids = [[_catDataSource objectAtIndex:0] objectForKey:@"subcat_id"];
@@ -79,7 +120,6 @@
      NSLog(@"%s",__func__);
     static int i = 0;
     i = 0;
-    [self showProgressHud];//显示刷新进度条
     [DownLoadData getCategorys:^(id obj, NSError *err) {
         NSArray * categories = [obj objectForKey:@"categories"];
         
@@ -111,6 +151,8 @@
         NSMutableArray * mStrArr = [[NSMutableArray alloc] init];
         for (NSDictionary * district in districts) {
             NSDictionary * dic = @{@"district_name":[district objectForKey:@"district_name"],@"id":[district objectForKey:@"district_id"]};
+            
+            NSLog(@"other +++ %@  ++ %@",[district objectForKey:@"district_name"],[district objectForKey:@"district_id"]);
             [_districts addObject:dic];
             [mStrArr addObject:[district objectForKey:@"district_id"]];
         }
@@ -123,7 +165,7 @@
             [self addPullDownMenu];//
         }
 
-    }];
+    } withCityId:cityId];
     
     
 }
@@ -149,6 +191,7 @@
     menu.delegate = self;
     menu.frame = CGRectMake(0, 64,menu.frame.size.width, menu.frame.size.height);
     [self.view addSubview:menu];
+    
     [self requestForCatData];
 }
 
@@ -200,41 +243,48 @@
             if ([weakSelf timeToRemoveDataFromDataSource]) {
                 [_datasource removeAllObjects];
             }
-            NSArray * shp = [[obj objectForKey:@"data"] objectForKey:@"shops"];
-            for (NSDictionary * dic in shp) {
-                Shops * shop = [[Shops alloc] init];
-                shop.shopName = [dic objectForKey:@"shop_name"];
-                shop.distance = [dic objectForKey:@"distance"];
-                shop.url = [dic objectForKey:@"shop_murl"];
+             NSDictionary * dic = [obj objectForKey:@"data"];
+            
+            if (![[NSString stringWithFormat:@"%@",[obj objectForKey:@"data"]] isEqualToString:@"<null>"]) {
                 
-                NSLog(@"RTRRRRRR   %@ %@",shop.shopName,shop.distance);
-                
-                NSArray * deals = [dic objectForKey:@"deals"];
-                for (NSDictionary * dicDeal in deals) {
-                    Deal * dl = [[Deal alloc] init];
-                    dl.imagurl = [dicDeal objectForKey:@"tiny_image"];
-                    dl.desc = [dicDeal objectForKey:@"description"];
-                    dl.currentPrice = [dicDeal objectForKey:@"current_price"];
-                    dl.markPrice = [dicDeal objectForKey:@"market_price"];
-                    dl.parameterPrice = [dicDeal objectForKey:@"promotion_price"];
-                    dl.saleNum = [dicDeal objectForKey:@"sale_num"];
-                    dl.url = [dicDeal objectForKey:@"deal_murl"];
-                    if (shop.deals == nil) {
-                        shop.deals = [[NSMutableArray alloc] init];
-                    }
-                    [shop.deals addObject:dl];
+                NSLog(@"%@",[obj objectForKey:@"data"]);
+                NSArray * shp = [[obj objectForKey:@"data"] objectForKey:@"shops"];
+                for (NSDictionary * dic in shp) {
+                    Shops * shop = [[Shops alloc] init];
+                    shop.shopName = [dic objectForKey:@"shop_name"];
+                    shop.distance = [dic objectForKey:@"distance"];
+                    shop.url = [dic objectForKey:@"shop_murl"];
                     
-                    NSLog(@"++++++++++   %@ ",dl.desc);
-                }
-                //是否要加载完全 用来实现折叠效果
-                if (deals.count > 2) {
-                    shop.isLoadAll = NO;
-                }else
-                {
-                    shop.isLoadAll = YES;
-                }
-                [_datasource addObject:shop];
-                
+                    NSLog(@"RTRRRRRR   %@ %@",shop.shopName,shop.distance);
+                    
+                    NSArray * deals = [dic objectForKey:@"deals"];
+                    for (NSDictionary * dicDeal in deals) {
+                        Deal * dl = [[Deal alloc] init];
+                        dl.imagurl = [dicDeal objectForKey:@"tiny_image"];
+                        dl.desc = [dicDeal objectForKey:@"description"];
+                        dl.currentPrice = [dicDeal objectForKey:@"current_price"];
+                        dl.markPrice = [dicDeal objectForKey:@"market_price"];
+                        dl.parameterPrice = [dicDeal objectForKey:@"promotion_price"];
+                        dl.saleNum = [dicDeal objectForKey:@"sale_num"];
+                        dl.url = [dicDeal objectForKey:@"deal_murl"];
+                        if (shop.deals == nil) {
+                            shop.deals = [[NSMutableArray alloc] init];
+                        }
+                        [shop.deals addObject:dl];
+                        
+                        NSLog(@"++++++++++   %@ ",dl.desc);
+                    }
+                    //是否要加载完全 用来实现折叠效果
+                    if (deals.count > 2) {
+                        shop.isLoadAll = NO;
+                    }else
+                    {
+                        shop.isLoadAll = YES;
+                    }
+                    [_datasource addObject:shop];
+            }
+            
+            
             }
             
           [_tableView reloadData];
